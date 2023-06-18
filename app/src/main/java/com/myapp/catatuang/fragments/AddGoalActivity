@@ -1,0 +1,24 @@
+package com.myapp.catatuang
+
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView
+
+class AddGoalActivity : AppCompatActivity() {
+    private lateinit var adapter: FinancialGoalAdapter
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_add_goal)
+
+        // Инициализация адаптера
+        adapter = FinancialGoalAdapter()
+
+        // Назначение адаптера для RecyclerView
+        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
+        recyclerView.adapter = adapter
+
+        // Создание новой финансовой цели
+        val goal = FinancialGoal("goal_id", "user_id", "Goal Name", 1000, 0, "2023-12-31", "Note")
+    }
+}
